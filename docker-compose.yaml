@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  toggl-ws2mqtt:
+    build: .
+    container_name: toggl-ws2mqtt
+    restart: always
+    env_file:
+      - .env
