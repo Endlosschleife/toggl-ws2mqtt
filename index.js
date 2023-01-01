@@ -24,6 +24,9 @@ ws.on('message', function message(data) {
         const model = json["model"] || "unknown";
         mqttClient.publish(`toggl/${model}`, data);
     }
+    if(json.type === 'ping') {
+        ws.send('{"type": "pong"}')
+    }
 });
 
 mqttClient.on('connect', function () {
